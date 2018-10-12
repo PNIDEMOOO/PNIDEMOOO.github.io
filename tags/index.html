@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="pnidemooo.github.io/tags/">
+    <link rel="canonical" href="http://pnidemooo.github.io/tags/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,7 +90,7 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -104,7 +104,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -176,11 +176,11 @@
                 
                     <a href="#ubuntu" title="ubuntu" rel="1">ubuntu</a>
                 
+                    <a href="#日杂" title="日杂" rel="1">日杂</a>
+                
                     <a href="#markdown" title="markdown" rel="1">markdown</a>
                 
                     <a href="#hexo" title="hexo" rel="1">hexo</a>
-                
-                    <a href="#日杂" title="日杂" rel="1">日杂</a>
                 
             </div>
 
@@ -266,6 +266,28 @@
             </div>
             
             <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="日杂">
+                    <span class="tag-text">日杂</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/04/09/Hello-World/">
+                        <h2 class="post-title">
+                            Hello World
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="markdown">
                     <span class="tag-text">markdown</span>
                 </span>
@@ -300,28 +322,6 @@
                      <a href="/2018/04/10/利用Hexo搭建静态网页博客/">
                         <h2 class="post-title">
                             利用Hexo搭建静态网页博客
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="日杂">
-                    <span class="tag-text">日杂</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/04/09/Hello-World/">
-                        <h2 class="post-title">
-                            Hello World
                         </h2>
                         
                     </a>
@@ -431,7 +431,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("pnidemooo.github.io/js/jquery.tagcloud.js",function(){
+        async("http://pnidemooo.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -495,7 +495,7 @@
 
 
 <!-- Image to hack wechat -->
-<img src="pnidemooo.github.io/img/icon_wechat.png" width="0" height="0" />
+<img src="http://pnidemooo.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
