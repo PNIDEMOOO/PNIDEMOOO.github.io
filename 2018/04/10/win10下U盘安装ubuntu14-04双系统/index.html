@@ -13,11 +13,11 @@
 
     <title>
         
-          About - 胖妞的博客 | PNIDEMOOO&#39;s Blog
+          win10下U盘安装ubuntu14.04双系统 - 胖妞的博客 | PNIDEMOOO&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://pnidemooo.xyz/blog/blog/about/">
+    <link rel="canonical" href="http://pnidemooo.xyz/blog/blog/2018/04/10/win10下U盘安装ubuntu14-04双系统/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
@@ -147,133 +147,142 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/blog/img/about-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://pnidemooo.xyz/blog/blog/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('ubuntu2.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>About</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is PNIDEMOOO.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/blog/tags/#双系统" title="双系统">双系统</a>
+                        
+                          <a class="tag" href="/blog/tags/#linux" title="linux">linux</a>
+                        
+                          <a class="tag" href="/blog/tags/#ubuntu" title="ubuntu">ubuntu</a>
+                        
+                    </div>
+                    <h1>win10下U盘安装ubuntu14.04双系统</h1>
+                    <h2 class="subheading">双系统的安装是对玄学的最初探索</h2>
+                    <span class="meta">
+                        Posted by PNIDEMOOO on
+                        2018-04-10
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <blockquote>
-<p>一念天地阔，万事羽毛轻。 </p>
-</blockquote>
-<p>一个弱渣程序员的技术blog（只要懒癌不发作就写吧（大概</p>
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="安装前的准备工作"><a href="#安装前的准备工作" class="headerlink" title="安装前的准备工作"></a>安装前的准备工作</h2><ul>
+<li>ubuntu-14.04.5-desktop-amd64.iso <a href="http://mirrors.163.com/ubuntu-releases/" target="_blank" rel="noopener">各版本下载</a></li>
+<li>空的U盘（&gt;=2G）  </li>
+<li>UltraISO（用于制作Ubuntu的启动U盘） </li>
+<li>EasyBCD（用于作系统引导）  </li>
+</ul>
+<h2 id="制作Ubuntu的启动U盘"><a href="#制作Ubuntu的启动U盘" class="headerlink" title="制作Ubuntu的启动U盘"></a>制作Ubuntu的启动U盘</h2><p>插入空U盘，打开UltraISO。<br>文件-&gt;打开-&gt;选择ISO文件-&gt;启动-&gt;写入硬盘映像<br><img src="1.png" alt="">   </p>
+<h2 id="在Win10下为ubuntu建立分区"><a href="#在Win10下为ubuntu建立分区" class="headerlink" title="在Win10下为ubuntu建立分区"></a>在Win10下为ubuntu建立分区</h2><p>Win+X：点击“磁盘管理”<br>选择一个剩余磁盘空间足够大的<strong>逻辑</strong>磁盘，例如F盘，右键磁盘，选择“压缩卷”<br><img src="2.png" alt=""><br>输入压缩空间量分出50G左右（512000MB）（不用给新分区命名，这样后续再安装Ubuntu系统进行分区时会自动显示为“空闲”），Ubuntu将被安装在这个分区内。点击压缩后分区完成。   </p>
+<h2 id="通过U盘启动安装Ubuntu"><a href="#通过U盘启动安装Ubuntu" class="headerlink" title="通过U盘启动安装Ubuntu"></a>通过U盘启动安装Ubuntu</h2><p>插入U盘，重启计算机，开机时长按F12，选择USB启动。<br><img src="3.jpg" alt=""><br>选择语言-&gt;连接网络-&gt;继续-&gt;<strong>其它选项</strong>【这里不要选共存和替换】<br>之后选中在Win10下留下的空闲空间：</p>
+<ul>
+<li><p>点“+”创建分区，大小200MB-400MB，新分区类型:逻辑分区，新分区位置：空间起始位置，用于EX4日志文件系统，挂载点：/boot</p>
+</li>
+<li><p>点“+”创建分区，大小5000MB，新分区类型:逻辑分区，新分区位置：空间起始位置，用于交换分区空间</p>
+</li>
+<li><p>点“+”创建分区，大小16000MB，新分区类型:逻辑分区，新分区位置：空间起始位置，用于EX4日志文件系统，挂载点：/  </p>
+</li>
+<li><p>点“+”创建分区，大小为剩余的全部，新分区类型:逻辑分区，新分区位置：空间起始位置，用于EX4日志文件系统，挂载点：/home</p>
+</li>
+<li><p>安装启动引导器的设备：下拉菜单中选择刚刚建立了/boot分区的编号，之后点击现在安装。<br><img src="4.jpg" alt="">    </p>
+</li>
+<li><p>选择时区、语言、设置用户姓名密码等。   </p>
+</li>
+</ul>
+<h2 id="用EasyBCD引导Ubuntu"><a href="#用EasyBCD引导Ubuntu" class="headerlink" title="用EasyBCD引导Ubuntu"></a>用EasyBCD引导Ubuntu</h2><p>安装好后重启会直接进入Win10系统，这是因为我们把Ubuntu的引导设在/boot所在分区了，所以要用EasyBCD创建启动时的选择系统。  </p>
+<p>添加新条目:<br><img src="5.png" alt=""><br>根据大小判断出刚刚设置的/boot所在分区，添加条目。   </p>
+<p>再重启后会发现在开机时可以正常选择进入Ubuntu14.04或Win10了。至此，双系统安装完成。  </p>
+<h2 id="后续–安全删除双系统中的Ubuntu"><a href="#后续–安全删除双系统中的Ubuntu" class="headerlink" title="后续–安全删除双系统中的Ubuntu"></a>后续–安全删除双系统中的Ubuntu</h2><p>如果不再需要Ubuntu系统，需要进行两个步骤：  </p>
+<h3 id="删除linux的grub引导"><a href="#删除linux的grub引导" class="headerlink" title="删除linux的grub引导"></a>删除linux的grub引导</h3><p>MbrFix.exe是Windows下一款修复主引导记录MBR的轻量级软件。下载地址：<a href="http://pan.baidu.com/s/1jI8DdNw" target="_blank" rel="noopener">http://pan.baidu.com/s/1jI8DdNw</a> 密码：9qco<br>里面分别有MbrFix.exe,MbrFix64.exe文件，32位系统下载MbrFix.exe，64位系统下载MbrFix64.exe。将下载的文件放在C盘根目录下，并在此打开命令行，输入：  </p>
+<pre><code>MbrFix64 /drive 0 fixmbr     
+</code></pre><p>系统回复：  </p>
+<pre><code>You are about to Fix MBR, are you sure (Y/N)?
+</code></pre><p>输入Y后会出现报错： </p>
+<pre><code>Function failed. Error 5.拒绝访问。
+</code></pre><p>这是因为MbrFix软件的执行权限还没有受到系统的认可，需要进行如下操作：<br>1、右键单击MbrFix.exe，选择属性；<br>2、选择兼容性，选中“以管理员身份运行”。<br>这样就可以了，重新输入命令：</p>
+<pre><code>MbrFix64 /drive 0 fixmbr     
+</code></pre><p>输入Y后系统没有进一步的回应，但这时MBR已经修复成功了。<br>这样就吧grub引导覆盖了，开机可以直接运行windows。   </p>
+<h3 id="删除linux的系统"><a href="#删除linux的系统" class="headerlink" title="删除linux的系统"></a>删除linux的系统</h3><p>打开磁盘管理，在linux的各个分区右键，选择删除卷，就会变成未分配空间。在Windows分区上右键，选择“扩展卷”，扩展它以填补删除Linux所留下的自由空间。  </p>
 
 
-                <!-- 如果开启评论功能 -->
+                <hr>
+
                 
-                    <hr>
 
+                <ul class="pager">
                     
-
+                        <li class="previous">
+                            <a href="/blog/2018/04/10/利用Hexo搭建静态网页博客/" data-toggle="tooltip" data-placement="top" title="利用Hexo搭建静态网页博客">&larr; Previous Post</a>
+                        </li>
                     
-
-
                     
-
+                        <li class="next">
+                            <a href="/blog/2018/04/09/Hello-World/" data-toggle="tooltip" data-placement="top" title="Hello World">Next Post &rarr;</a>
+                        </li>
                     
+                </ul>
 
-
+                
 
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                       
+                          <a class="tag" href="/blog/tags/#双系统" title="双系统">双系统</a>
                         
-                            
+                          <a class="tag" href="/blog/tags/#linux" title="linux">linux</a>
                         
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
+                          <a class="tag" href="/blog/tags/#ubuntu" title="ubuntu">ubuntu</a>
                         
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/blog/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/blog/img/panda.jpg" />
-                        
-
-                        
-                            <p>一念天地阔，万事羽毛轻。</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/PNIDEMOOO">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -288,9 +297,51 @@
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->
