@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -197,48 +197,27 @@
 <li>Git  </li>
 <li>Node.js  </li>
 </ul>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>先更换npm源（此处为淘宝npm源）  </p>
-<pre><code>npm config set registry https://registry.npm.taobao.org 
-npm info underscore （如果上面配置正确这个命令会有字符串response）
-</code></pre><p>之后即可安装Hexo  </p>
-<pre><code>npm install -g hexo-cli
-</code></pre><h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><p>由于我选择的开源Hexo主题<a href="https://github.com/kaijun/hexo-theme-huxblog/" target="_blank" rel="noopener">hexo-theme-huxblog</a> 直接封装了整个hexo文件夹，所以不需要新建一个空文件夹来放hexo文件，直接clone即可。  </p>
-<pre><code>git clone https://github.com/Kaijun/hexo-theme-huxblog.git
-mv hexo-theme-huxblog hexo //名字改短点
-cd hexo
-npm install
-</code></pre><h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>根目录配置文件<code>_config.yml</code>，基本上根据提示改就行。 </p>
-<pre><code># URL 
-url: http://pnidemooo.xyz/blog
-root: /blog/
-...
-# Disqus settings 
-disqus_username: 
-</code></pre><p>上边的Disqus的评论插件，翻墙才会显示。需要到该网站注册配置后将此处的用户名改为自己的即可。  </p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>先更换npm源（此处为淘宝npm源）<br> <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="keyword">set</span> registry <span class="comment">https:</span>//<span class="comment">registry.npm.taobao.org</span> </span><br><span class="line">npm <span class="comment">info underscore</span> （如果上面配置正确这个命令会有字符串<span class="comment">response</span>）</span><br></pre></td></tr></table></figure></p>
+<p>之后即可安装Hexo<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><p>由于我选择的开源Hexo主题<a href="https://github.com/kaijun/hexo-theme-huxblog/" target="_blank" rel="noopener">hexo-theme-huxblog</a> 直接封装了整个hexo文件夹，所以不需要新建一个空文件夹来放hexo文件，直接clone即可。<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/Kaijun/</span>hexo-theme-huxblog.git</span><br><span class="line">mv hexo-theme-huxblog hexo <span class="regexp">//</span>名字改短点</span><br><span class="line">cd hexo</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>根目录配置文件<code>_config.yml</code>，基本上根据提示改就行。 </p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># URL </span></span><br><span class="line"><span class="symbol">url:</span> http:<span class="comment">//pnidemooo.xyz/blog</span></span><br><span class="line"><span class="symbol">root:</span> <span class="meta-keyword">/blog/</span></span><br><span class="line">...</span><br><span class="line"><span class="meta"># Disqus settings </span></span><br><span class="line"><span class="symbol">disqus_username:</span></span><br></pre></td></tr></table></figure>
+<p>上边的Disqus的评论插件，翻墙才会显示。需要到该网站注册配置后将此处的用户名改为自己的即可。  </p>
 <h2 id="Source"><a href="#Source" class="headerlink" title="Source/"></a>Source/</h2><p><code>Source/</code>文件夹中存放了Blog内容的文件。其中<code>_post</code>中为各篇<code>.md</code>博文，同名文件夹内存放对应文章引用的图片。本模板的作者保留了几篇当作模板，删除即可。</p>
-<h2 id="写Blog"><a href="#写Blog" class="headerlink" title="写Blog"></a>写Blog</h2><pre><code>hexo new &quot;Hello World&quot;  //双引号内为博文标题。
-</code></pre><p>然后查看<code>/source/_post</code>即可看到新生成的<code>.md</code>文件及其文件夹。</p>
-<h2 id="生成和部署"><a href="#生成和部署" class="headerlink" title="生成和部署"></a>生成和部署</h2><h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><pre><code>hexo generate  //或简写成: hexo g
-</code></pre><p>该命令下hexo会自动更新生成静态文件。产生的文件全部放置在<code>public/</code>文件夹内。可以将文件夹复制到任何想要的地方。</p>
-<h3 id="本地服务器查看"><a href="#本地服务器查看" class="headerlink" title="本地服务器查看"></a>本地服务器查看</h3><pre><code>hexo server  //或简写成: hexo s  
-</code></pre><p><img src="1.png" alt="">   </p>
+<h2 id="写Blog"><a href="#写Blog" class="headerlink" title="写Blog"></a>写Blog</h2><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">"Hello World"</span>  <span class="comment">//双引号内为博文标题。</span></span><br></pre></td></tr></table></figure>
+<p>然后查看<code>/source/_post</code>即可看到新生成的<code>.md</code>文件及其文件夹。</p>
+<h2 id="生成和部署"><a href="#生成和部署" class="headerlink" title="生成和部署"></a>生成和部署</h2><h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">generate</span>  <span class="comment">//或简写成: hexo g</span></span><br></pre></td></tr></table></figure>
+<p>该命令下hexo会自动更新生成静态文件。产生的文件全部放置在<code>public/</code>文件夹内。可以将文件夹复制到任何想要的地方。</p>
+<h3 id="本地服务器查看"><a href="#本地服务器查看" class="headerlink" title="本地服务器查看"></a>本地服务器查看</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">server</span>  <span class="comment">//或简写成: hexo s</span></span><br></pre></td></tr></table></figure>
+<p><img src="1.png" alt="">   </p>
 <h3 id="部署至服务器"><a href="#部署至服务器" class="headerlink" title="部署至服务器"></a>部署至服务器</h3><p>首次使用需要<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="noopener">配置</a>。<br>我使用的是sftp：</p>
 <ul>
 <li><p>修改配置文件_config.yml。</p>
-<pre><code>deploy:
-  type: sftp  
-  host: xxxxxxx  
-  user: xxxxxxx  
-  pass: xxxxxxx  
-  remotePath: /home/wwwroot/pnidemooo.xyz/blog/  
-  port: 22  
-  privateKey:   
-  passphrase:   
-  agent:   
-</code></pre></li>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> sftp  </span><br><span class="line"><span class="symbol">  host:</span> xxxxxxx  </span><br><span class="line"><span class="symbol">  user:</span> xxxxxxx  </span><br><span class="line"><span class="symbol">  pass:</span> xxxxxxx  </span><br><span class="line"><span class="symbol">  remotePath:</span> <span class="meta-keyword">/home/</span>wwwroot/pnidemooo.xyz<span class="meta-keyword">/blog/</span>  </span><br><span class="line"><span class="symbol">  port:</span> <span class="number">22</span>  </span><br><span class="line"><span class="symbol">  privateKey:</span>   </span><br><span class="line"><span class="symbol">  passphrase:</span>   </span><br><span class="line"><span class="symbol">  agent:</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>部署</p>
-<pre><code>hexo deploy  //或简写成: hexo d
-</code></pre><p>  <img src="2.png" alt=""><br>  之后remotePath指向的目录的目录结构同步成与本地public文件完全相同的目录结构。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">deploy</span>  <span class="string">//</span>或简写成: hexo d</span><br></pre></td></tr></table></figure>
+<p>  <img src="2.png" alt=""><br>  之后remotePath指向的目录的目录结构同步成与本地public文件完全相同的目录结构。</p>
 </li>
 </ul>
 
@@ -248,6 +227,10 @@ disqus_username:
                 
 
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/10/15/Git-Bash中用Sublime打开文件/" data-toggle="tooltip" data-placement="top" title="Git Bash中用Sublime打开文件">&larr; Previous Post</a>
+                        </li>
                     
                     
                         <li class="next">

@@ -13,11 +13,11 @@
 
     <title>
         
-          Archives - 胖妞的博客 | PNIDEMOOO&#39;s Blog
+          Git Bash中用Sublime打开文件 - 胖妞的博客 | PNIDEMOOO&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://pnidemooo.github.io/archives/">
+    <link rel="canonical" href="http://pnidemooo.github.io/2018/10/15/Git-Bash中用Sublime打开文件/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -147,109 +147,134 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://pnidemooo.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Archives</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Hey, this is Archives.</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Sublime" title="Sublime">Sublime</a>
+                        
+                    </div>
+                    <h1>Git Bash中用Sublime打开文件</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by PNIDEMOOO on
+                        2018-10-15
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li><p>新建一个文件，文件名为你需要的命令名，比如<code>subl</code>（注意不要加后缀），文件内容如下：  </p>
+  <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\<span class="meta">#!/bin/sh  </span></span><br><span class="line"><span class="string">"%你的sublime text路径%\sublime_text.exe"</span> $<span class="number">1</span> <span class="meta">&amp;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一行是说这是个 shell 脚本</li>
+<li>第二行的字符串是sublime 的安装目录注意这里要输入你自己的目录</li>
+<li>第二行的$1 是取的命令之后输入的参数</li>
+<li>第二行的&amp;是此命令在后台打开，这样sublime打开之后，就不会阻塞你的git bash</li>
+</ul>
+</li>
+<li><p>保存到 <code>%你的Git目录%\Git\Git-2.11.1\mingw64\bin</code> 目录下</p>
+</li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">subl </span>xxxxxx</span><br></pre></td></tr></table></figure>
+<p>如果xxxxxx是已存在的文件，此条命令会打开该文件，如果不存在则会打开新文件命名为xxxxxx。</p>
+<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>不光是sublime，我们可以用这种方法设置更多，比如用chrome打开.html文件等等。 </p>
 
 
+                <hr>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2018">
-                    <span class="tag-text">2018</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    10-15
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/10/15/Git-Bash中用Sublime打开文件/" style="color: #0085a1">
-                        <span>
-                            Git Bash中用Sublime打开文件
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/10/利用Hexo搭建静态网页博客/" style="color: #0085a1">
-                        <span>
-                            利用Hexo搭建静态网页博客
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/10/win10下U盘安装ubuntu14-04双系统/" style="color: #0085a1">
-                        <span>
-                            win10下U盘安装ubuntu14.04双系统
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li >
-                    04-09
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2018/04/09/Hello-World/" style="color: #0085a1">
-                        <span>
-                            Hello World
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
                 
 
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/04/10/利用Hexo搭建静态网页博客/" data-toggle="tooltip" data-placement="top" title="利用Hexo搭建静态网页博客">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Sublime" title="Sublime">Sublime</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://kaijun.github.io/hexo-theme-huxblog" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+                    
+                </ul>
+                
+            </div>
 
         </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
 
 
     <!-- Footer -->

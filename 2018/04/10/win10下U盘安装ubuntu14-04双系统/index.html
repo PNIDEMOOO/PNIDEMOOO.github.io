@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -222,15 +222,11 @@
 <p>添加新条目:<br><img src="5.png" alt=""><br>根据大小判断出刚刚设置的/boot所在分区，添加条目。   </p>
 <p>再重启后会发现在开机时可以正常选择进入Ubuntu14.04或Win10了。至此，双系统安装完成。  </p>
 <h2 id="后续–安全删除双系统中的Ubuntu"><a href="#后续–安全删除双系统中的Ubuntu" class="headerlink" title="后续–安全删除双系统中的Ubuntu"></a>后续–安全删除双系统中的Ubuntu</h2><p>如果不再需要Ubuntu系统，需要进行两个步骤：  </p>
-<h3 id="删除linux的grub引导"><a href="#删除linux的grub引导" class="headerlink" title="删除linux的grub引导"></a>删除linux的grub引导</h3><p>MbrFix.exe是Windows下一款修复主引导记录MBR的轻量级软件。下载地址：<a href="http://pan.baidu.com/s/1jI8DdNw" target="_blank" rel="noopener">http://pan.baidu.com/s/1jI8DdNw</a> 密码：9qco<br>里面分别有MbrFix.exe,MbrFix64.exe文件，32位系统下载MbrFix.exe，64位系统下载MbrFix64.exe。将下载的文件放在C盘根目录下，并在此打开命令行，输入：  </p>
-<pre><code>MbrFix64 /drive 0 fixmbr     
-</code></pre><p>系统回复：  </p>
-<pre><code>You are about to Fix MBR, are you sure (Y/N)?
-</code></pre><p>输入Y后会出现报错： </p>
-<pre><code>Function failed. Error 5.拒绝访问。
-</code></pre><p>这是因为MbrFix软件的执行权限还没有受到系统的认可，需要进行如下操作：<br>1、右键单击MbrFix.exe，选择属性；<br>2、选择兼容性，选中“以管理员身份运行”。<br>这样就可以了，重新输入命令：</p>
-<pre><code>MbrFix64 /drive 0 fixmbr     
-</code></pre><p>输入Y后系统没有进一步的回应，但这时MBR已经修复成功了。<br>这样就吧grub引导覆盖了，开机可以直接运行windows。   </p>
+<h3 id="删除linux的grub引导"><a href="#删除linux的grub引导" class="headerlink" title="删除linux的grub引导"></a>删除linux的grub引导</h3><p>MbrFix.exe是Windows下一款修复主引导记录MBR的轻量级软件。下载地址：<a href="http://pan.baidu.com/s/1jI8DdNw" target="_blank" rel="noopener">http://pan.baidu.com/s/1jI8DdNw</a> 密码：9qco<br>里面分别有MbrFix.exe,MbrFix64.exe文件，32位系统下载MbrFix.exe，64位系统下载MbrFix64.exe。将下载的文件放在C盘根目录下，并在此打开命令行，输入：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MbrFix64 <span class="string">/drive</span> 0 fixmbr</span><br></pre></td></tr></table></figure></p>
+<p>系统回复：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You are <span class="keyword">about</span> <span class="keyword">to</span> Fix MBR, are you sure (Y/N)?</span><br></pre></td></tr></table></figure></p>
+<p>输入Y后会出现报错：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Function</span> <span class="title">failed.</span> Error 5.拒绝访问。</span><br></pre></td></tr></table></figure></p>
+<p>这是因为MbrFix软件的执行权限还没有受到系统的认可，需要进行如下操作：<br>1、右键单击MbrFix.exe，选择属性；<br>2、选择兼容性，选中“以管理员身份运行”。<br>这样就可以了，重新输入命令：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MbrFix64 <span class="string">/drive</span> 0 fixmbr</span><br></pre></td></tr></table></figure></p>
+<p>输入Y后系统没有进一步的回应，但这时MBR已经修复成功了。<br>这样就吧grub引导覆盖了，开机可以直接运行windows。   </p>
 <h3 id="删除linux的系统"><a href="#删除linux的系统" class="headerlink" title="删除linux的系统"></a>删除linux的系统</h3><p>打开磁盘管理，在linux的各个分区右键，选择删除卷，就会变成未分配空间。在Windows分区上右键，选择“扩展卷”，扩展它以填补删除Linux所留下的自由空间。  </p>
 
 
