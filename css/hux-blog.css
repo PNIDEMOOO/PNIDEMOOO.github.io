@@ -1,14 +1,3 @@
-.post-container del:hover {
-    background-color: #fff;
-}
-
-.post-container del {
-    text-decoration: none;
-    background-color: #929292;
-    color: #929292;
-}
-
-
 @media (min-width: 1200px) {
   .post-container,
   .sidebar-container {
