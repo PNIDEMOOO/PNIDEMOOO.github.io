@@ -90,13 +90,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -105,6 +98,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -199,7 +199,7 @@
 <li>Git  </li>
 <li>Node.js  </li>
 </ul>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>先更换npm源（此处为淘宝npm源）<br> <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="keyword">set</span> registry <span class="comment">https:</span>//<span class="comment">registry.npm.taobao.org</span> </span><br><span class="line">npm <span class="comment">info underscore</span> （如果上面配置正确这个命令会有字符串<span class="comment">response</span>）</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>先更换npm源（此处为淘宝npm源）<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="keyword">set</span> registry <span class="comment">https:</span>//<span class="comment">registry.npm.taobao.org</span> </span><br><span class="line">npm <span class="comment">info underscore</span> （如果上面配置正确这个命令会有字符串<span class="comment">response</span>）</span><br></pre></td></tr></table></figure></p>
 <p>之后即可安装Hexo<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h2><p>由于我选择的开源Hexo主题<a href="https://github.com/kaijun/hexo-theme-huxblog/" target="_blank" rel="noopener">hexo-theme-huxblog</a> 直接封装了整个hexo文件夹，所以不需要新建一个空文件夹来放hexo文件，直接clone即可。<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/Kaijun/</span>hexo-theme-huxblog.git</span><br><span class="line">mv hexo-theme-huxblog hexo <span class="regexp">//</span>名字改短点</span><br><span class="line">cd hexo</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
 <h2 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h2><p>根目录配置文件<code>_config.yml</code>，基本上根据提示改就行。 </p>
@@ -342,7 +342,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; 一只高冷的胖妞 2019 
+                    Copyright &copy; 一只高冷的胖妞 2021 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">

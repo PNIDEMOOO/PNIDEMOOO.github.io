@@ -13,11 +13,11 @@
 
     <title>
         
-          胖妞的博客 | PNIDEMOOO&#39;s Blog
+          CMakeLists.txt笔记 - 胖妞的博客 | PNIDEMOOO&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://pnidemooo.github.io/i_dont_wanna_use_default_archives/">
+    <link rel="canonical" href="http://pnidemooo.github.io/2019/10/10/CMakeLists-txt笔记/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -147,7 +147,157 @@
 
 
     <!-- Main Content -->
-    <!-- Default Archive layout, we use archives instead. -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://pnidemooo.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#linux" title="linux">linux</a>
+                        
+                          <a class="tag" href="/tags/#C++" title="C++">C++</a>
+                        
+                    </div>
+                    <h1>CMakeLists.txt笔记</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by PNIDEMOOO on
+                        2019-10-10
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念"></a>几个概念</h2><h5 id="GNU"><a href="#GNU" class="headerlink" title="GNU"></a>GNU</h5><p>一个软件项目，它开发了许多应用程序<del>【不是一个公司</del></p>
+<h5 id="gcc"><a href="#gcc" class="headerlink" title="gcc"></a>gcc</h5><p>gcc是GNU编译器套件（GNU Compiler Collection），它包括了C、C++、Objective-C、Fortran、Java、Ada、Go语言和D语言的前端，也包括了这些语言的库（如libstdc++、libgcj等等）。<br>gcc是Linux下默认的C/C++编译器，在windows环境下可以通过MinGw等GNU for Windows类工具使用gcc编译套件。    </p>
+<h5 id="g"><a href="#g" class="headerlink" title="g++"></a>g++</h5><p>g++是gcc的c++编译器</p>
+<h5 id="make"><a href="#make" class="headerlink" title="make"></a>make</h5><p>这里指 GNU make。<br>make工具通过编写的makefile脚本文件描述整个工程的编译、链接规则。</p>
+<h5 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h5><p>CMake是一个跨平台的编译工具。CMake目前主要使用场景是作为make的上层工具，产生可移植的makefile文件。</p>
+<h2 id="CMake具体使用方法"><a href="#CMake具体使用方法" class="headerlink" title="CMake具体使用方法"></a>CMake具体使用方法</h2><p>CMake通过编写CMakeLists.txt文件，之后用cmake命令将CMakeLists.txt文件转化为make所需要的makefile文件，最后用make命令编译源码生成可执行程序或共享库（.so）。  </p>
+<p>CMake的编译基本步骤：  </p>
+<pre><code>mkdir build
+cd build
+cmake ..
+make
+</code></pre><p>其中cmake指向CMakeLists.txt所在的目录，例如cmake .. 表示CMakeLists.txt在当前目录的上一级目录。<br>因为cmake之后会生成很多编译的中间文件以及makefile文件，所以一般建议新建一个目录build，专门用来编译。  </p>
+<h2 id="编写CMakeLists-txt"><a href="#编写CMakeLists-txt" class="headerlink" title="编写CMakeLists.txt"></a>编写CMakeLists.txt</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://blog.csdn.net/zhuoxiuwu/article/details/97781693" target="_blank" rel="noopener">浅述gcc、Make、CMake的作用及关系</a>   </li>
+<li><a href="https://blog.csdn.net/hpu11/article/details/80317988" target="_blank" rel="noopener">Cmake使用示例—-编写CMakeLists.txt文件编译C/C++程序</a>    </li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2020/12/29/RRD/" data-toggle="tooltip" data-placement="top" title="RRD">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/06/29/vs2017下编译使用MIRACL大数库/" data-toggle="tooltip" data-placement="top" title="vs2017下编译使用MIRACL大数库">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#linux" title="linux">linux</a>
+                        
+                          <a class="tag" href="/tags/#C++" title="C++">C++</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://kaijun.github.io/hexo-theme-huxblog" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
 
     <!-- Footer -->
     <!-- Footer -->
@@ -300,6 +450,50 @@
 
 
 <!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
 
 
 

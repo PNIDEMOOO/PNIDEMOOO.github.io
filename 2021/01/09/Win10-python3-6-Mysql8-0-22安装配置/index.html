@@ -13,11 +13,11 @@
 
     <title>
         
-          胖妞的博客 | PNIDEMOOO&#39;s Blog
+          Win10+python3.6+Mysql8.0.22安装配置 - 胖妞的博客 | PNIDEMOOO&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://pnidemooo.github.io/i_dont_wanna_use_default_archives/">
+    <link rel="canonical" href="http://pnidemooo.github.io/2021/01/09/Win10-python3-6-Mysql8-0-22安装配置/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -147,7 +147,167 @@
 
 
     <!-- Main Content -->
-    <!-- Default Archive layout, we use archives instead. -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://pnidemooo.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Win10+python3.6+Mysql8.0.22安装配置</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by PNIDEMOOO on
+                        2021-01-09
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="下载Mysql"><a href="#下载Mysql" class="headerlink" title="下载Mysql"></a>下载Mysql</h2><p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">官网下载地址</a><br><img src="download1.jpg" alt=""><br>注意下边这个选项，不需要登录oracle也可以下载：<br><img src="download2.jpg" alt=""><br>之后在本地解压，我这里是解压到<code>D:\software\mysql-8.0.22-winx64</code></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>在<strong>环境变量-系统变量-Path</strong>中加入<code>D:\software\mysql-8.0.22-winx64\bin</code>  </p>
+<h2 id="配置Mysql的my-ini文件"><a href="#配置Mysql的my-ini文件" class="headerlink" title="配置Mysql的my.ini文件"></a>配置Mysql的my.ini文件</h2><p>在 <code>D:\software\mysql-8.0.22-winx64</code>目录下新建一个<code>my.ini</code>文件<br>内容为：</p>
+<pre><code>[mysqld]
+# 设置3306端口
+port=3306
+# 设置mysql的安装目录
+basedir=D:\\software\\mysql-8.0.22-winx64
+# 设置mysql数据库的数据的存放目录
+datadir=D:\\software\\mysql-8.0.22-winx64\\data
+# 允许最大连接数
+max_connections=200
+# 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
+max_connect_errors=10
+# 服务端使用的字符集默认为UTF8
+character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8
+[client]
+# 设置mysql客户端连接服务端时默认使用的端口
+port=3306
+default-character-set=utf8
+</code></pre><h2 id="初始化MySQL"><a href="#初始化MySQL" class="headerlink" title="初始化MySQL"></a>初始化MySQL</h2><ul>
+<li>以管理员身份打开cmd命令窗口或Windows powershell，输入命令：<code>mysqld --initialize --user=mysql --console</code><br><img src="cmd.jpg" alt=""><br>绿框里的就是root的初始密码，把它复制下来保存  </li>
+<li>在命令窗口输入命令：<code>mysqld --install</code>。至此，service成功安装。</li>
+</ul>
+<h2 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h2><ul>
+<li>在命令窗口输入命令：<code>net start mysql</code>开启服务（只有开启服务才能连接和操作数据库）  </li>
+<li>在命令窗口输入命令登录：<code>mysql -u root -p</code>，下一行会要求enter password，就把刚刚复制下来保存的初始密码粘贴进来。</li>
+<li>登录进来之后可更改初始密码，例如改为“123”，输入命令：<code>set password=&#39;123&#39;;</code>（注意一定要加分号）  </li>
+<li>现在，账号为：<code>root</code>，密码为：<code>123</code>  </li>
+<li>如果要通过python连接数据库，还需要更改身份认证方式，即在命令窗口输入<code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &quot;123&quot;</code>（因为MySQL 8.0以后，默认的密码加密方式是caching_sha2_password而不是mysql_native_password。不输入这条命令会提示 Authentication plugin ‘caching_sha2_password’ is not supported。）  </li>
+<li>退出mysql命令：<code>quit</code></li>
+</ul>
+<h2 id="python连接数据库"><a href="#python连接数据库" class="headerlink" title="python连接数据库"></a>python连接数据库</h2><ul>
+<li><code>python -m pip install mysql-connector</code>安装驱动</li>
+<li><p>连接Mysql代码：</p>
+<pre><code>import mysql.connector
+
+mydb = mysql.connector.connect(
+    host=&quot;localhost&quot;,  # 数据库主机地址
+    user=&quot;root&quot;,  # 数据库用户名
+    passwd=&quot;123&quot;,  # 数据库密码
+    auth_plugin=&apos;mysql_native_password&apos;
+)
+
+print(mydb)
+</code></pre></li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2020/12/29/RRD/" data-toggle="tooltip" data-placement="top" title="RRD">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://kaijun.github.io/hexo-theme-huxblog" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
 
     <!-- Footer -->
     <!-- Footer -->
