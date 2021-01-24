@@ -326,7 +326,31 @@
 <blockquote>
 <p>注意：在编码过程中<code>sums</code>数组无需出现，<code>sums_value</code>数组无需在得出完整<code>sums</code>数组后再赋值。<code>sums</code>数组只是为了便于理解。</p>
 </blockquote>
-<h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h2><p><a href="https://leetcode-cn.com/problems/count-number-of-nice-subarrays" target="_blank" rel="noopener">leetcode 1248 统计「优美子数组」</a></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre><code>class Solution:
+    # 前缀和思想
+    def numberOfSubarrays(self, nums: List[int], k: int) -&gt; int:
+        subarrays_count=0 # 完美子数组的个数
+        # sums=[] # sum[i]表示在数组nums中，第i-1个元素(不包括第i-1个)之前有多少个奇数
+        # sums.append(0)
+        sum_count=0 
+        sums_value=[] # sums_value[i]表示sums的元素中值为i的个数
+        sums_value.append(1)
+        value=0
+        for i in range(1,len(nums)+1):
+            if(nums[i-1]%2==1):
+                sum_count=sum_count+1
+                value=value+1
+                sums_value.append(1)
+            else:
+                sums_value[value]=sums_value[value]+1
+            # sums.append(sum_count)
+        for j in range(len(sums_value)):
+            if j-k&gt;=0:
+                subarrays_count=subarrays_count+sums_value[j-k]*sums_value[j]
+        # print(&quot;sums=&quot;,sums)
+        # print(&quot;sums_value&quot;,sums_value)
+        return (subarrays_count)
+</code></pre><h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h2><p><a href="https://leetcode-cn.com/problems/count-number-of-nice-subarrays" target="_blank" rel="noopener">leetcode 1248 统计「优美子数组」</a></p>
 
 
                 <hr>
