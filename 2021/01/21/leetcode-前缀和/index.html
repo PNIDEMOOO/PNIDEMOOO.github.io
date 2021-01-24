@@ -90,6 +90,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -98,13 +105,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -191,7 +191,143 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="leetcode算法–前缀和"><a href="#leetcode算法–前缀和" class="headerlink" title="leetcode算法–前缀和"></a>leetcode算法–前缀和</h2>
+                <h2 id="leetcode算法–前缀和"><a href="#leetcode算法–前缀和" class="headerlink" title="leetcode算法–前缀和"></a>leetcode算法–前缀和</h2><h3 id="一维前缀和"><a href="#一维前缀和" class="headerlink" title="一维前缀和"></a>一维前缀和</h3><p>举例：<br>假设一维数组为a=[1,4,6,2,7]<br>前缀和数组sums=[1,5,11,13,20]<br>求第2个元素“6”到第4个元素“7”之间的和（左开右闭），即可用sums[4]-sums[2]=9  </p>
+<blockquote>
+<p>“前缀和”是一种思想，并不是一定要求“和”，也可以是其他值，只要满足f(i,j)=f(j)-f(i)即可，其中f(i,j)表示第i到第j个元素之间的某值，f(i)表示第i个元素之前的某值。</p>
+</blockquote>
+<h3 id="例题：Leetode-1248-统计「优美子数组」"><a href="#例题：Leetode-1248-统计「优美子数组」" class="headerlink" title="例题：Leetode 1248 统计「优美子数组」"></a>例题：Leetode 1248 统计「优美子数组」</h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数数组<code>nums</code>和一个整数<code>k</code>。<br>如果某个<code>连续</code>子数组中恰好有<code>k</code>个奇数数字，我们就认为这个子数组是「优美子数组」。<br>请返回这个数组中「优美子数组」的数目。  </p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>示例 1：  </p>
+<pre><code>输入：nums = [1,1,2,1,1], k = 3
+输出：2
+解释：包含 3 个奇数的子数组是 [1,1,2,1] 和 [1,2,1,1] 。
+</code></pre><p>示例 2：  </p>
+<pre><code>输入：nums = [2,4,6], k = 1
+输出：0
+解释：数列中不包含任何奇数，所以不存在优美子数组。
+</code></pre><p>示例3：  </p>
+<pre><code>输入：nums = [2,2,2,1,2,2,1,2,2,2], k = 2
+输出：16
+</code></pre><h4 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h4><ul>
+<li>1 &lt;= nums.length &lt;= 50000</li>
+<li>1 &lt;= nums[i] &lt;= 10^5</li>
+<li>1 &lt;= k &lt;= nums.length</li>
+</ul>
+<h4 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h4><p>数据范围在50000以下，对照 <a href="http://localhost:4000/2021/01/21/leetcode%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">做题顺序</a><br> 中的 数据范围 =&gt; 时间复杂度 =&gt; 算法集合 ，得出算法集合：  </p>
+<blockquote>
+<p>差分、前缀和、双指针、桶排序、单调栈、单调队列</p>
+</blockquote>
+<p>再看本题特征：  </p>
+<ul>
+<li>连续子数组</li>
+<li>子数组内恰好有<code>k</code>个奇数数字</li>
+</ul>
+<p>可得出结论：本题可用前缀和思想求解。  </p>
+<p>如果对「前缀和」算法有所掌握的话，凭借这两大特征不难确定此题可以用「前缀和」求解。</p>
+<p>设原数组为 <code>nums=[2,1,3,4,6,8,7,10,12,5,14]</code>, <code>k=3</code>：</p>
+<table>
+<thead>
+<tr>
+<th>index</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>2</td>
+<td><strong>1</strong></td>
+<td><strong>3</strong></td>
+<td>4</td>
+<td>6</td>
+<td>8</td>
+<td><strong>7</strong></td>
+<td>10</td>
+<td>12</td>
+<td><strong>5</strong></td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>令 <code>sums[i+1]</code> 表示数组第 0 个数到第 i 个数中奇数的个数。<code>sums[0]=0</code>，这里为什么要补一个<code>sums[0]</code>在后边会讲。则在此例中，<code>sums</code>数组应为：  </p>
+<table>
+<thead>
+<tr>
+<th>index</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>4</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>这个<code>sums</code>数组有什么用呢？  </p>
+<p>对于此例的<code>nums=[2,1,3,4,6,8,7,10,12,5,14]</code>, <code>k=3</code>来说，对于包含<code>1,3,7</code>这三个连续奇数的所有连续子数组，<code>[1,3,4,6,8,7]</code>是其中长度最小的一个。再扩大长度，可以将<code>1</code>的左边延伸到最后一个非奇数，将<code>7</code>的右边延伸到最后一个非奇数。也就是说，最长的就是<code>[2,1,3,4,6,8,7,10,12]</code>。只要包含<code>[1,3,4,6,8,7]</code>，最左可以是<code>1</code>或<code>2</code>，共<code>2</code>种选择，左右可以是<code>7</code>或<code>10</code>或<code>12</code>共3种选择，也就是说，包含<code>1,3,7</code>这三个连续奇数的所有连续子数组共有 <code>2 × 3 = 6</code> 个。  </p>
+<p>总结：假设原数组中，共有<code>n</code>个奇数： 0,1,…,a-1,a,…,b,b+1,…,n。<br>包含 第a个奇数…第b个奇数 的连续子数组共有：<strong><code>(a-1,a]的长度 × [b,b+1)的长度</code></strong>。  </p>
+<p>又因为：<br>（1）<code>[b,b+1)</code>的长度就等于<strong><code>sums</code>数组中值为<code>b+1</code>的元素的个数</strong>；<br>（2）当<code>a&gt;=1</code>时，<code>(a-1,a]</code>的长度等于<code>[a-1,a)</code>的长度，就等<strong>于<code>sums</code>数组中值为<code>a</code>的元素的个数</strong>；为了让<code>a=0</code>时也符合要求，就给<code>sums</code>数组最前边补一个值为0的元素，即<code>sums[0]=0</code>。 </p>
+<p>因此，新建一个<code>sums_value</code>数组，用来<strong>记录<code>sums</code>数组中每个值的个数</strong>。则在此例中，<code>sums_value</code>数组应为：</p>
+<table>
+<thead>
+<tr>
+<th>index</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>对于<code>i&gt;=k</code>，所有<code>sums_value[i]×sums_value[i-k]</code>的和即为本题最终结果。</p>
+<blockquote>
+<p>注意：在编码过程中<code>sums</code>数组无需出现，<code>sums_value</code>数组无需在得出完整<code>sums</code>数组后再赋值。<code>sums</code>数组只是为了便于理解。</p>
+</blockquote>
+<h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h2><p><a href="https://leetcode-cn.com/problems/count-number-of-nice-subarrays" target="_blank" rel="noopener">leetcode 1248 统计「优美子数组」</a></p>
+
 
                 <hr>
 
